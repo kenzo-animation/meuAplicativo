@@ -1,56 +1,67 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <IonPage>
+    <IonHeader>
+      <IonToolbar>
+        <IonTitle>Contador</IonTitle>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
+        <ion-button color="dark" @click="router.push('/tarefas')">
+          tarefas
+        </ion-button>
+      </IonToolbar>
+    </IonHeader>
 
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-      </div>
-    </ion-content>
-  </ion-page>
+    <IonContent class="ion-padding">
+      <h2>Valor atual: {{ contador }}</h2>
+
+      <IonButton expand="block" @click="incrementar"> Incrementar </IonButton>
+
+      <IonButton expand="block" color="danger" @click="tirar">
+        tire 1
+      </IonButton>
+
+      <IonButton expand="block" color="danger" @click="resetar">
+        reset
+      </IonButton>
+
+      <IonButton expand="block" color="success" @click="multiplicar">
+        multiplique o valor por click
+      </IonButton>
+
+    </IonContent>
+  </IonPage>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+} from "@ionic/vue";
+
+const router = useRouter();
+
+const contador = ref(0);
+const incremento = ref(1);
+
+const incrementar = () => {
+  contador.value += incremento.value;
+};
+
+const tirar = () => {
+  contador.value -= incremento.value;
+};
+
+const resetar = () => {
+  contador.value = 0;
+  incremento.value = 1;
+};
+
+const multiplicar = () => {
+  incremento.value *= 2;
+};
 </script>
-
-<style scoped>
-#container {
-  text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-</style>
