@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Tarefa</ion-title>
+        <ion-title>Tarefas</ion-title>
       </ion-toolbar>
     </ion-header>
 
