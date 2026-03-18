@@ -20,7 +20,7 @@
       </IonButton>
 
       <IonButton expand="block" color="danger" @click="resetar">
-        reset
+        resetar
       </IonButton>
 
       <IonButton expand="block" color="success" @click="multiplicar">
