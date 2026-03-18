@@ -7,6 +7,9 @@
     </ion-header>
 
     <ion-content :fullscreen="true">
+      <ion-button>
+        <ion-icon slot="icon-only" :icon="add"></ion-icon>
+      </ion-button>
       <div id="container">
         <ion-text color="danger">
           <h1>Nova tarefas</h1>
