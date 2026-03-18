@@ -52,7 +52,7 @@
         class="ion-margin-top"
         @click="$router.push('/')"
       >
-        Go Back
+        Go Backs
       </ion-button>
     </ion-content>
   </ion-page>
