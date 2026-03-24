@@ -1,3 +1,11 @@
+watch(totalPendentes, (valor) => {
+ if (valor === 0 && tarefas.value.length > 0) {
+ // Exibir IonAlert, IonToast ou alert() simples
+ alert('🎉 Parabéns! Todas as tarefas foram concluídas!')
+ }
+})
+
+
 // src/composables/useTarefas.ts
 import { ref, computed, watch } from "vue";
 interface Tarefa {
